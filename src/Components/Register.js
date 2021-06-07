@@ -6,8 +6,8 @@ const Register = () => {
                 <label htmlFor="username">Username </label>
                 <input id="username" type="text" />
                 <br />
-                <label htmlFor="">  Password </label>
-                <input id="password" type="password" />
+                <label htmlFor="passwordRegister">  Password </label>
+                <input id="passwordRegister" type="password" />
                 <br />
                 <button>Submit</button>
             </form>
