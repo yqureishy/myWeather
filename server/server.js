@@ -1,6 +1,8 @@
 const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
+// requiring router file
+const registerRouter = require('./routes/registration')
 require('dotenv').config({path:__dirname + '/config/.env'})
 
 const app = express()
@@ -15,8 +17,8 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
 .then((result)=>console.log('database connected'))
 .catch((err)=>console.log(err))
 
-
-
+// using router file
+app.use('/registration',registerRouter)
 
 
 
