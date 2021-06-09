@@ -3,9 +3,18 @@ const mongoose = require("mongoose")
 
 // creating a newUser schema
 const newUserSchema = new mongoose.Schema({
-    username: String,
-    password: String,
-
+    username: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 5
+    },
+    password: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 5
+    }
 })
 
 // First parameter should be singular notion of collection name
