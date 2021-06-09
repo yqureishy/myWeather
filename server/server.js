@@ -5,18 +5,15 @@ require('dotenv').config({path:__dirname + '/config/.env'})
 
 const app = express()
 
-const User = require("./models/user")
+const User = require('./models/user')
 const PORT = process.env.PORT || 5000
-
+// cross origin resource sharing
 app.use(cors())
 // Connect to MongoDB
-const dbURI = 'mongodb+srv://yqureishy:younusq@cluster0.c3huk.mongodb.net/my_Weather?retryWrites=true&w=majority'
 
-
-
-
-
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result)=>console.log('database connected')).catch((err)=>console.log(err))
+mongoose.connect(process.env.dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then((result)=>console.log('database connected'))
+.catch((err)=>console.log(err))
 
 
 //creating an instance of the User model
