@@ -1,20 +1,28 @@
 const express = require("express")
+const app = express()
 const cors = require("cors")
+const bodyParser = require('body-parser')
 const mongoose = require("mongoose")
+const User = require('./models/user')
 // requiring router file
 const registerRouter = require('./routes/registration')
 require('dotenv').config({path:__dirname + '/config/.env'})
-
-const app = express()
-
-const User = require('./models/user')
 const PORT = process.env.PORT || 5000
+
+app.use(express.json())
+
 // cross origin resource sharing
 app.use(cors())
+// using router file
+app.use('/registration', registerRouter)
+
+
+
+
 // Connect to MongoDB via URI (Uniform Resource Identifier)
-dbURI = process.env.dbURI_Atlas
+const dbURI = process.env.dbURI_Atlas
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
-.then((result)=>console.log('database connected'))
+.then((result)=>console.log('database connected successfully'))
 .catch((err)=>console.log(err))
 
 // using router file
