@@ -3,7 +3,7 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 // requiring router file
 const registerRouter = require('./routes/registration')
-require('dotenv').config({path:__dirname + '/config/.env'})
+require('dotenv').config({ path: __dirname + '/config/.env' })
 
 const app = express()
 
@@ -12,13 +12,19 @@ const PORT = process.env.PORT || 5000
 // cross origin resource sharing
 app.use(cors())
 // Connect to MongoDB via URI (Uniform Resource Identifier)
+// mongodb cluster is in HOTMAIL ACCOUNT
 dbURI = process.env.dbURI_Atlas
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
-.then((result)=>console.log('database connected'))
-.catch((err)=>console.log(err))
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then((result) => console.log('database connected'))
+    .catch((err) => console.log(err))
 
 // using router file
-app.use('/registration',registerRouter)
+app.use('/registration', registerRouter)
+
+// home route
+app.get('/', (req, res) => {
+    res.render()
+})
 
 
 
