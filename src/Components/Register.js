@@ -1,5 +1,5 @@
 const Register = () => {
-    return ( 
+    return (
         <div>
             <h1>Register</h1>
             <form action="">
@@ -12,7 +12,7 @@ const Register = () => {
                 <button>Submit</button>
             </form>
         </div>
-     );
+    );
 }
- 
+
 export default Register;
