@@ -1,18 +1,22 @@
+// Database connected via younusqureishy@hotmail.com
+
 const express = require("express")
+const app = express()
 const cors = require("cors")
 const mongoose = require("mongoose")
+app.use(express.urlencoded({ extended: false }))
 // requiring router file
-const registerRouter = require('./routes/registration')
+const registerRouter = require('./routes/registrationRoute')
 require('dotenv').config({ path: __dirname + '/config/.env' })
 
-const app = express()
+
 
 const User = require('./models/user')
 const PORT = process.env.PORT || 5000
 // cross origin resource sharing
 app.use(cors())
 // Connect to MongoDB via URI (Uniform Resource Identifier)
-// mongodb cluster is in HOTMAIL ACCOUNT
+
 dbURI = process.env.dbURI_Atlas
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => console.log('database connected'))

@@ -2,7 +2,7 @@ const Register = () => {
     return (
         <div>
             <h1>Register</h1>
-            <form action="">
+            <form method="POST" action="/registration">
                 <label htmlFor="username">Username </label>
                 <input id="username" type="text" />
                 <br />
